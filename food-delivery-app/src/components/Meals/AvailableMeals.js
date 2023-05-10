@@ -8,11 +8,12 @@ const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
+  const mealItemfromFirebase = process.env.MEAL_URL;
 
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
-        'https://react-http-6b4a6.firebaseio.com/meals.json'
+        mealItemfromFirebase
       );
 
       if (!response.ok) {
